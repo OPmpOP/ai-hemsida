@@ -5,19 +5,111 @@
     box-sizing: border-box;
 }
 
-/* Flexbox-layout */
+/* Grund */
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #222;
 }
 
-/* Exempel: centrera innehåll */
-main {
-    flex: 1;
+/* Header */
+.header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #000;
+    color: #fff;
+}
+
+.header nav a {
+    color: #fff;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+/* Hero */
+.hero {
+    min-height: 70vh;
+    background: linear-gradient(to right, #000, #333);
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+}
+
+.btn {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: #c62828;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* Sections */
+.section {
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.card {
+    flex: 1;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background: #000;
+    color: #fff;
+}
+
+/* ===== RESPONSIV DESIGN ===== */
+
+/* Laptop & mindre */
+@media (max-width: 900px) {
+    .cards {
+        flex-direction: column;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Mobil */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .header nav a {
+        margin: 0 0.5rem;
+    }
+
+    .hero {
+        min-height: 60vh;
+    }
 }
