@@ -17,15 +17,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
     background: #000;
     color: #fff;
+    padding: 1rem 2rem;
 }
 
 .header nav a {
     color: #fff;
-    margin-left: 1rem;
     text-decoration: none;
+    margin-left: 1rem;
+}
+
+.header nav a.active {
+    border-bottom: 2px solid #c62828;
 }
 
 /* Hero */
@@ -33,12 +37,10 @@ body {
     min-height: 70vh;
     background: linear-gradient(to right, #000, #333);
     color: #fff;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
     padding: 2rem;
 }
@@ -47,6 +49,7 @@ body {
     font-size: 2.5rem;
 }
 
+/* Button */
 .btn {
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
@@ -56,11 +59,11 @@ body {
     border-radius: 4px;
 }
 
-/* Sections */
+/* Section */
 .section {
-    padding: 3rem 2rem;
     max-width: 1000px;
     margin: auto;
+    padding: 3rem 2rem;
 }
 
 /* Cards */
@@ -71,23 +74,23 @@ body {
 
 .card {
     flex: 1;
-    padding: 2rem;
     border: 1px solid #ddd;
     border-radius: 6px;
+    padding: 2rem;
     text-align: center;
 }
 
 /* Footer */
 .footer {
-    text-align: center;
-    padding: 1rem;
     background: #000;
     color: #fff;
+    text-align: center;
+    padding: 1rem;
 }
 
-/* ===== RESPONSIV DESIGN ===== */
+/* ===== RESPONSIV ===== */
 
-/* Laptop & mindre */
+/* Laptop */
 @media (max-width: 900px) {
     .cards {
         flex-direction: column;
@@ -107,9 +110,5 @@ body {
 
     .header nav a {
         margin: 0 0.5rem;
-    }
-
-    .hero {
-        min-height: 60vh;
     }
 }
