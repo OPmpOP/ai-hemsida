@@ -8,184 +8,165 @@ body{
   font-family:Arial, sans-serif;
   background:#0a0a0a;
   color:white;
-  overflow-x:hidden;
+}
+
+/* INTRO */
+.intro{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  animation:fadeOut 2s forwards;
+  animation-delay:2s;
+}
+
+.intro h1{
+  font-size:3rem;
+  letter-spacing:4px;
+  color:#e10600;
+}
+
+@keyframes fadeOut{
+  to{
+    opacity:0;
+    visibility:hidden;
+  }
 }
 
 /* HEADER */
-
-.header{
+header{
   position:fixed;
   width:100%;
   display:flex;
   justify-content:space-between;
   padding:1rem 2rem;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.7);
   z-index:1000;
 }
 
-.logo{
-  font-weight:bold;
-  letter-spacing:2px;
+nav{
+  display:flex;
+  gap:1.5rem;
 }
 
-.nav a{
+nav a{
   color:white;
   text-decoration:none;
-  margin-left:1.5rem;
-  transition:0.3s;
 }
 
-.nav a:hover{
-  color:#e10600;
+.menu-toggle{
+  display:none;
+  cursor:pointer;
 }
 
-/* HERO CINEMATIC */
-
+/* HERO */
 .hero{
   height:100vh;
-  background:linear-gradient(to bottom, #000000, #1a0000);
   display:flex;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
-  position:relative;
   text-align:center;
-}
-
-.hero-overlay{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:radial-gradient(circle at center, rgba(225,6,0,0.2), transparent 70%);
-  animation:pulse 6s infinite;
-}
-
-@keyframes pulse{
-  0%{opacity:0.4;}
-  50%{opacity:0.8;}
-  100%{opacity:0.4;}
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
+  background:linear-gradient(to bottom,#000,#300000);
 }
 
 .hero h1{
   font-size:3rem;
-  letter-spacing:4px;
 }
 
-.btn{
-  margin-top:2rem;
+.hero button{
+  margin-top:1rem;
   padding:1rem 2rem;
-  border:none;
   background:#e10600;
+  border:none;
   color:white;
   cursor:pointer;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.1);
-  box-shadow:0 0 30px #e10600;
 }
 
 /* SECTIONS */
-
-.section{
+section{
   padding:6rem 2rem;
-  max-width:1100px;
-  margin:auto;
   text-align:center;
 }
 
-.dark{
-  background:#111;
-}
-
-h2{
-  margin-bottom:2rem;
-  letter-spacing:2px;
-}
-
 /* PARALLAX */
-
 .parallax{
-  height:60vh;
-  background:linear-gradient(to bottom, #000, #300000);
+  height:50vh;
+  background:linear-gradient(to bottom,#111,#400000);
+  background-attachment:fixed;
   display:flex;
   justify-content:center;
   align-items:center;
-  background-attachment:fixed;
 }
 
-.parallax-inner h2{
-  font-size:2rem;
-}
-
-/* GRID */
-
-.info-grid{
+/* CARDS */
+.cards{
   display:flex;
+  justify-content:center;
   gap:2rem;
   flex-wrap:wrap;
-  justify-content:center;
 }
 
-.info-card, .price-card{
+.card{
   background:#1a1a1a;
   padding:2rem;
-  width:280px;
-  transition:0.4s;
+  width:200px;
+  transition:0.3s;
 }
 
-.info-card:hover, .price-card:hover{
+.card:hover{
   transform:translateY(-10px);
-  box-shadow:0 20px 40px rgba(225,6,0,0.4);
+  box-shadow:0 15px 30px rgba(225,6,0,0.5);
 }
 
-.price-card span{
-  display:block;
-  margin-top:1rem;
-  font-size:1.5rem;
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:3rem;
+  flex-wrap:wrap;
+}
+
+.counter{
+  font-size:2rem;
   color:#e10600;
 }
 
-.highlight{
-  border:2px solid #e10600;
-}
-
 /* FOOTER */
-
 footer{
   text-align:center;
   padding:2rem;
   background:black;
 }
 
-/* SCROLL REVEAL */
-
-.reveal{
-  opacity:0;
-  transform:translateY(60px);
-  transition:1s ease;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
 /* RESPONSIVE */
-
 @media(max-width:768px){
-  .hero h1{
-    font-size:2rem;
+
+  nav{
+    position:absolute;
+    top:60px;
+    right:0;
+    background:black;
+    flex-direction:column;
+    width:200px;
+    display:none;
+    padding:1rem;
   }
 
-  .info-grid{
-    flex-direction:column;
-    align-items:center;
+  nav.active{
+    display:flex;
   }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .cards, .stats{
+    flex-direction:column;
+  }
+
 }
