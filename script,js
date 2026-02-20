@@ -1,21 +1,26 @@
-// Scroll reveal
-const reveals = document.querySelectorAll(".reveal");
+// Hamburger
+const toggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector("nav");
 
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("active");
+toggle.addEventListener("click",()=>{
+  nav.classList.toggle("active");
+});
+
+// Counter animation
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter=>{
+  const updateCount = ()=>{
+    const target = +counter.getAttribute("data-target");
+    const count = +counter.innerText;
+    const increment = target / 100;
+
+    if(count < target){
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(updateCount,20);
+    } else {
+      counter.innerText = target;
     }
-  });
-},{threshold:0.2});
-
-reveals.forEach(el=>observer.observe(el));
-
-// Smooth scroll
-document.querySelectorAll("a").forEach(anchor=>{
-  anchor.addEventListener("click", function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href"))
-      .scrollIntoView({behavior:"smooth"});
-  });
+  };
+  updateCount();
 });
