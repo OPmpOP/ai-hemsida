@@ -1,0 +1,25 @@
+// Scroll reveal
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+// Button click animation
+const btn = document.querySelector(".btn");
+if (btn) {
+    btn.addEventListener("click", () => {
+        btn.textContent = "Vi kontaktar dig!";
+        btn.style.background = "#2e7d32";
+    });
+}
