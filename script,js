@@ -1,25 +1,25 @@
-// Scroll reveal
+// Scroll animation
 const reveals = document.querySelectorAll(".reveal");
 
-function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-
-    reveals.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) {
-            el.classList.add("active");
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
         }
     });
-}
+}, { threshold: 0.15 });
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+reveals.forEach(el => observer.observe(el));
 
-// Button click animation
-const btn = document.querySelector(".btn");
-if (btn) {
-    btn.addEventListener("click", () => {
-        btn.textContent = "Vi kontaktar dig!";
-        btn.style.background = "#2e7d32";
-    });
-}
+// Page transition
+document.querySelectorAll("a").forEach(link => {
+    if (link.href.includes(window.location.origin)) {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+                window.location = this.href;
+            }, 400);
+        });
+    }
+});
