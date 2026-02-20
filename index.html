@@ -5,23 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BJJ Academy</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
 <header class="header">
     <h1>BJJ Academy</h1>
     <nav>
-        <a href="index.html">Hem</a>
-        <a href="about.html">Om oss</a>
-        <a href="training.html">Träning</a>
-        <a href="contact.html">Kontakt</a>
+        <a href="#about">Om oss</a>
+        <a href="#training">Träning</a>
+        <a href="#contact">Kontakt</a>
     </nav>
 </header>
 
-<section class="hero">
-    <h2>Brasiliansk Jiu-Jitsu för alla</h2>
-    <p>Teknik • Disciplin • Gemenskap</p>
-    <a href="training.html" class="btn">Se träning</a>
+<section class="hero reveal">
+    <h2>Brasiliansk Jiu-Jitsu</h2>
+    <p>Teknik • Respekt • Gemenskap</p>
+    <button class="btn">Prova gratis</button>
+</section>
+
+<section id="about" class="section reveal">
+    <h2>Om oss</h2>
+    <p>
+        BJJ Academy är ett modernt gym där vi tränar både hobbyutövare
+        och tävlingsatleter. Vår filosofi bygger på teknik, disciplin
+        och långsiktig utveckling.
+    </p>
+</section>
+
+<section id="training" class="section cards reveal">
+    <div class="card">
+        <h3>Nybörjare</h3>
+        <p>Perfekt för dig som aldrig tränat BJJ tidigare.</p>
+    </div>
+    <div class="card">
+        <h3>Avancerad</h3>
+        <p>Fördjupad teknik, sparring och tävlingsfokus.</p>
+    </div>
+    <div class="card">
+        <h3>No-Gi</h3>
+        <p>Snabb, atletisk och modern Jiu-Jitsu.</p>
+    </div>
+</section>
+
+<section id="contact" class="section reveal">
+    <h2>Kontakt</h2>
+    <p>Email: info@bjjacademy.se</p>
+    <p>Telefon: 070-123 45 67</p>
+    <p>Adress: Exempelgatan 12, Stockholm</p>
 </section>
 
 <footer class="footer">
